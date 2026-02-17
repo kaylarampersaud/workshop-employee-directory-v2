@@ -32,3 +32,8 @@ app.get("/employees/:id", (req, res) => {
 
   res.send(employee);
 });
+
+// A catch-all error-handling middleware sends status 500 for uncaught errors.
+app.use((err, req, res, next) => {
+  res.status(500).send("Sorry, something went wrong :(");
+});
